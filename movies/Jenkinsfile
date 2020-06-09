@@ -135,7 +135,8 @@ pipeline {
 			oc project ${STAGE_PROJECT}
 			oc new-app --name ${APP_NAME} -i {APP_NAME}:stage
 			oc expose svc/${APP_NAME}
-	    }
+	   	'''
+		 }
         }
 
         stage('Wait for deployment in Staging') {
