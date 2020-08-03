@@ -1,0 +1,8 @@
+[2019-11-22 15:24:57.526] [cli] [info] main {"_":[],"diff":false,"add":false,"goto":false,"new-window":false,"reuse-window":false,"wait":false,"version":false,"help":false,"list-extensions":false,"show-versions":false,"verbose":false,"status":false,"prof-modules":false,"prof-startup":false,"disable-extensions":false,"disable-gpu":false,"logExtensionHostCommunication":false,"skip-getting-started":false,"skip-release-notes":false,"sticky-quickopen":false,"disable-restore-windows":false,"disable-telemetry":false,"disable-updates":false,"disable-crash-reporter":false,"skip-add-to-recently-opened":false,"unity-launch":false,"open-url":false,"nolazy":false,"issue":false,"file-write":false,"file-chmod":false,"driver-verbose":false,"force":false,"prof-code-loading":false,"nodeless":false,"install-extension":"ivory-lab.jenkinsfile-support-0.4.4.vsix"}
+[2019-11-22 15:24:58.672] [cli] [info] Scanned user extensions: 2
+[2019-11-22 15:24:59.713] [cli] [info] Scanned user extensions: 2
+[2019-11-22 15:24:59.713] [cli] [info] Installing the extension: ivory-lab.jenkinsfile-support
+[2019-11-22 15:25:05.094] [cli] [info] Extracted extension to /home/student/.vscode-oss/extensions/.ivory-lab.jenkinsfile-support-0.4.4: ivory-lab.jenkinsfile-support
+[2019-11-22 15:25:05.095] [cli] [info] Renamed to /home/student/.vscode-oss/extensions/ivory-lab.jenkinsfile-support-0.4.4
+[2019-11-22 15:25:05.097] [cli] [info] Installation completed. ivory-lab.jenkinsfile-support
+[2019-11-22 15:25:05.239] [cli] [info] Successfully installed the extension: ivory-lab.jenkinsfile-support
