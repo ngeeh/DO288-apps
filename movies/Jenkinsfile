@@ -98,8 +98,8 @@ pipeline {
                 script {
                     openshift.withCluster() {
                         openshift.withProject( "${DEV_PROJECT}" ) {
-                            def deployment = openshift.selector("dc", "${APP_NAME}").rollout()
-                            openshift.selector("dc", "${APP_NAME}").related('pods').untilEach(1) {
+                            def deployment = openshift.selector("deployment", "${APP_NAME}").rollout()
+                            openshift.selector("deployment", "${APP_NAME}").related('pods').untilEach(1) {
                                 return (it.object().status.phase == "Running")
                             }
                         }
