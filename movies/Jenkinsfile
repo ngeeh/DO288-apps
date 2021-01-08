@@ -98,13 +98,14 @@ pipeline {
       		steps {
 		        script {
             //TODO: Watch deployment until pod is in 'Running' state
-
-            			openshift.withProject( "${DEV_PROJECT}" ) {
-		                  openshift.selector("deployment", "${APP_NAME}").related('pods').untilEach(1) {
-                		        return (it.object().status.phase == "Running")
-		                  }		
-		             	}	
-		        	}	
+				openshift.withCluster() {
+	            			openshift.withProject( "${DEV_PROJECT}" ) {
+			                  openshift.selector("deployment", "${APP_NAME}").related('pods').untilEach(1) {
+                			        return (it.object().status.phase == "Running")
+		        	          }		
+		             		}	
+		        		}
+				}	
 		      }
         }
 
