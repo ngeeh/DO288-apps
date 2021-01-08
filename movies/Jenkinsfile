@@ -93,20 +93,20 @@ pipeline {
             }
         }
 
-        stage('Wait for deployment in DEV env') {
-            steps {
-                script {
-                    openshift.withCluster() {
-                        openshift.withProject( "${DEV_PROJECT}" ) {
-                            def deployment = openshift.selector("deployment", "${APP_NAME}").rollout()
-                            openshift.selector("deployment", "${APP_NAME}").related('pods').untilEach(1) {
-                                return (it.object().status.phase == "Running")
-                            }
-                        }
-                    }
-                }
-            }
-        }
+//        stage('Wait for deployment in DEV env') {
+//           steps {
+//                script {
+//                    openshift.withCluster() {
+//                        openshift.withProject( "${DEV_PROJECT}" ) {
+//                            def deployment = openshift.selector("deployment", "${APP_NAME}").rollout()
+//                            openshift.selector("deployment", "${APP_NAME}").related('pods').untilEach(1) {
+//                                return (it.object().status.phase == "Running")
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
         stage('Promote to Staging Env') {
             steps {
