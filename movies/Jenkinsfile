@@ -94,19 +94,17 @@ pipeline {
         }
 
         stage('Wait for deployment in DEV env') {
-            //TODO: Watch deployment until pod is in 'Running' state
-      		steps {
-		        script {
-            //TODO: Watch deployment until pod is in 'Running' state
-				openshift.withCluster() {
-	            			openshift.withProject( "${DEV_PROJECT}" ) {
-			                  openshift.selector("deployment", "${APP_NAME}").related('pods').untilEach(1) {
-                			        return (it.object().status.phase == "Running")
-		        	          }		
-		             		}	
-		        		}
-				}	
-		      }
+            steps {
+                script {
+                    openshift.withCluster() {
+                        openshift.withProject( "${DEV_PROJECT}" ) {
+                            openshift.selector("deployment", "${APP_NAME}").related('pods').untilEach(1) {
+                                return (it.object().status.phase == "Running")
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         stage('Promote to Staging Env') {
@@ -150,8 +148,8 @@ pipeline {
 
                     openshift.withCluster() {
                         openshift.withProject( "${STAGE_PROJECT}" ) {
-                            def deployment = openshift.selector("dc", "${APP_NAME}").rollout()
-                            openshift.selector("dc", "${APP_NAME}").related('pods').untilEach(1) {
+                            def deployment = openshift.selector("deployment", "${APP_NAME}").rollout()
+                            openshift.selector("deployment", "${APP_NAME}").related('pods').untilEach(1) {
                                 return (it.object().status.phase == "Running")
                             }
                         }
